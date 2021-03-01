@@ -5,8 +5,7 @@ pipeline
 	parameters
 	{
 		string(name: 'DOCKER_IMAGE', defaultValue: 'default_name', description: 'Docker image')
-		string(name: 'DOCKER_CONTAINER', defaultValue: 'default_name', description: 'Docker container')
-		string(name: 'PORT', defaultValue: '3000', description: 'Port')
+
 	}
 
     stages
@@ -23,7 +22,7 @@ pipeline
 				sh "docker push localhost:8082/${DOCKER_IMAGE}:latest"
                 sh "javac *.java"
                 sh "jar cfe calculator.jar Calculadora2 ./*.class"
-                sh "curl -v --user 'admin:Drcg#1470' --upload calculator.jar"
+                sh "curl -v --user 'admin:Drcg#1470' --upload calculator.jar http://localhost:8081/repository/java-calc/"
 
             }
         }
