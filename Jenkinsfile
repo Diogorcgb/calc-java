@@ -27,11 +27,14 @@ pipeline
             }
         }
         stage('SonarQube analysis') {
-                environment { scannerHome = tool 'sonarqube' }
+             //   environment { scannerHome = tool 'sonarqube' }
                     steps {
-                            withSonarQubeEnv('sonarqube') {
+                        scrip {
+                            def scannerHome = tool 'sonarqube';
+                             withSonarQubeEnv('sonarqube')
+                        }
                                     sh "${scannerHome}/bin/sonar-scanner \
-                                    -D sonar.login=73fe1ed6acf48572b80de63db6684e4f09fb8fdb \
+                                    -D sonar.login=b46220895bbedfdfd33315c8300e2046a41f025e \
                                     -D sonar.projectKey=sonar \
                                     -D sonar.java.binaries=/var/jenkins_home/workspace/java-calc \
                                     -D sonar.java.source=11 \
