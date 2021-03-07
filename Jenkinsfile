@@ -31,18 +31,19 @@ pipeline
                     steps {
                         scrip {
                             def scannerHome = tool 'sonarqube';
-                             withSonarQubeEnv('sonarqube')    }
+                            withSonarQubeEnv('sonarqube')  {
                                     sh "${scannerHome}/bin/sonar-scanner \
                                     -D sonar.login=b46220895bbedfdfd33315c8300e2046a41f025e \
                                     -D sonar.projectKey=sonar \
                                     -D sonar.java.binaries=/var/jenkins_home/workspace/java-calc \
                                     -D sonar.java.source=11 \
-                                    -D sonar.host.url=http://sonar:9000/"
+                                    -D sonar.host.url=http://sonarqube:9000/"
                             }
                         }
                     } 
 		
 
-		
+        }
 
     }
+}
