@@ -29,7 +29,7 @@ pipeline
         stage('SonarQube analysis') {
              //   environment { scannerHome = tool 'sonarqube' }
                     steps {
-                        scrip {
+                        script {
                             def scannerHome = tool 'sonarqube';
                             withSonarQubeEnv('sonarqube')  {
                                     sh "${scannerHome}/bin/sonar-scanner \
