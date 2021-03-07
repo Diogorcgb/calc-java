@@ -26,6 +26,19 @@ pipeline
 
             }
         }
+        stage('SonarQube analysis') {
+                environment { scannerHome = tool 'sonarqube' }
+                    steps {
+                            withSonarQubeEnv('sonarqube') {
+                                    sh "${scannerHome}/bin/sonar-scanner \
+                                    -D sonar.login=73fe1ed6acf48572b80de63db6684e4f09fb8fdb \
+                                    -D sonar.projectKey=sonar \
+                                    -D sonar.java.binaries=/var/jenkins_home/workspace/java-calc \
+                                    -D sonar.java.source=11 \
+                                    -D sonar.host.url=http://sonar:9000/"
+                            }
+                        }
+                    } 
 		
 
 		
