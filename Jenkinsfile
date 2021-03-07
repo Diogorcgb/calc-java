@@ -31,8 +31,7 @@ pipeline
                     steps {
                         scrip {
                             def scannerHome = tool 'sonarqube';
-                             withSonarQubeEnv('sonarqube')
-                        }
+                             withSonarQubeEnv('sonarqube')    }
                                     sh "${scannerHome}/bin/sonar-scanner \
                                     -D sonar.login=b46220895bbedfdfd33315c8300e2046a41f025e \
                                     -D sonar.projectKey=sonar \
@@ -47,4 +46,3 @@ pipeline
 		
 
     }
-}
