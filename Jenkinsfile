@@ -31,7 +31,7 @@ pipeline
                     steps {
                             withSonarQubeEnv('sonarqube') {
                                     sh "${scannerHome}/bin/sonar-scanner \
-                                    -D sonar.login=65aa459a2fdc71b3d8ee2e5ffc715db2acf51033 \
+                                    -D sonar.login=ba96408c14393a43c931d410d7e8f4764466f4b5 \
                                     -D sonar.projectKey=sonarqube \
                                     -D sonar.java.binaries=/var/jenkins_home/workspace/Desnvolvimento \
                                     -D sonar.java.source=11 \
