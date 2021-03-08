@@ -27,15 +27,13 @@ pipeline
             }
         }
         stage('SonarQube analysis') {
-             //   environment { scannerHome = tool 'sonarqube' }
+       environment { scannerHome = tool 'sonarqube' }
                     steps {
-                        script {
-                            def scannerHome = tool 'sonarqube';
-                            withSonarQubeEnv('sonarqube')  {
+                            withSonarQubeEnv('sonarqube') {
                                     sh "${scannerHome}/bin/sonar-scanner \
-                                    -D sonar.login=b46220895bbedfdfd33315c8300e2046a41f025e \
-                                    -D sonar.projectKey=sonar \
-                                    -D sonar.java.binaries=/var/jenkins_home/workspace/java-calc \
+                                    -D sonar.login=65aa459a2fdc71b3d8ee2e5ffc715db2acf51033 \
+                                    -D sonar.projectKey=sonarqube \
+                                    -D sonar.java.binaries=/var/jenkins_home/workspace/Desnvolvimento \
                                     -D sonar.java.source=11 \
                                     -D sonar.host.url=http://sonarqube:9000/"
                             }
